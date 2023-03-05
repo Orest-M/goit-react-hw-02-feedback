@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import css from './leaveFeedback.module.css';
 
 const LeaveFeedback = ({ incrementFeedback }) => {
@@ -22,6 +24,10 @@ const LeaveFeedback = ({ incrementFeedback }) => {
       </ul>
     </div>
   );
+};
+
+LeaveFeedback.propTypes = {
+  incrementFeedback: PropTypes.func,
 };
 
 export default LeaveFeedback;
