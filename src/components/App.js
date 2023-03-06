@@ -41,7 +41,10 @@ export class App extends Component {
     return (
       <div style={{ margin: '15px 0 0 15px' }}>
         <Section title="Please leave feedback">
-          <LeaveFeedback incrementFeedback={this.incrementFeedback} />
+          <LeaveFeedback
+            incrementFeedback={this.incrementFeedback}
+            options={Object.keys(this.state)}
+          />
         </Section>
 
         <Section title="Statistics">

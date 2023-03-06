@@ -2,25 +2,17 @@ import PropTypes from 'prop-types';
 
 import css from './leaveFeedback.module.css';
 
-const LeaveFeedback = ({ incrementFeedback }) => {
+const LeaveFeedback = ({ incrementFeedback, options }) => {
   return (
     <div>
       <ul className={css.feedback__list} onClick={incrementFeedback}>
-        <li>
-          <button data-btn className={css.feedback__btn}>
-            Good
-          </button>
-        </li>
-        <li>
-          <button data-btn className={css.feedback__btn}>
-            Neutral
-          </button>
-        </li>
-        <li>
-          <button data-btn className={css.feedback__btn}>
-            Bad
-          </button>
-        </li>
+        {options.map(item => (
+          <li key={item}>
+            <button data-btn className={css.feedback__btn}>
+              {item}
+            </button>
+          </li>
+        ))}
       </ul>
     </div>
   );
@@ -28,6 +20,7 @@ const LeaveFeedback = ({ incrementFeedback }) => {
 
 LeaveFeedback.propTypes = {
   incrementFeedback: PropTypes.func,
+  options: PropTypes.arrayOf(PropTypes.string),
 };
 
 export default LeaveFeedback;
